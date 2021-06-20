@@ -142,15 +142,15 @@ func (h *histogram) getInfo() map[string]interface{} {
 		opCount += boundCount
 		per := float64(opCount) / float64(count)
 		if per99 == 0 && per >= 0.99 {
-			per99 = (bound + 1) * 1000
+			per99 = (bound + 1) * int(h.boundInterval)
 		}
 
 		if per999 == 0 && per >= 0.999 {
-			per999 = (bound + 1) * 1000
+			per999 = (bound + 1) * int(h.boundInterval)
 		}
 
 		if per9999 == 0 && per >= 0.9999 {
-			per9999 = (bound + 1) * 1000
+			per9999 = (bound + 1) * int(h.boundInterval)
 		}
 	}
 
